@@ -8,5 +8,10 @@ type SelectInner struct {
 var _ Stat = &SelectInner{}
 
 func (this *SelectInner) String() string {
-	return this.selectPrefix.String() + " " + this.selectSuffix.String()
+	prefix := this.selectPrefix.String()
+	suffix := this.selectSuffix.String()
+	if suffix == "" {
+		return prefix
+	}
+	return prefix + " " + suffix
 }
