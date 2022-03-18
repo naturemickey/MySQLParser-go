@@ -1,10 +1,22 @@
 package tree
 
 type ParamList struct {
+	element        Element
+	exprRelational *ExprRelational
+	paramList      *ParamList
 }
 
 var _ Stat = &ParamList{}
 
 func (this *ParamList) String() string {
-	return ""
+	sql := NewStringBuilder()
+	if this.element != nil {
+		sql.AppendStat(this.element)
+	} else {
+		sql.AppendStat(this.exprRelational)
+	}
+	if this.paramList != nil {
+		sql.Append(", ").AppendStat(this.paramList)
+	}
+	return sql.String()
 }
