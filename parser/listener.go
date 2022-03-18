@@ -3,20 +3,19 @@ package parser
 import (
 	. "MySQLParser-go/parser/antlr4"
 	"MySQLParser-go/parser/tree"
-	"MySQLParser-go/parser/tree/util"
 	"fmt"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
 type MySQLListenerGo struct {
 	stat        tree.Stat
-	parentStack *util.StatStack
+	parentStack *tree.StatStack
 }
 
 var _ MySQLListener = &MySQLListenerGo{}
 
 func NewMySQLListener() MySQLListener {
-	return new(MySQLListenerGo)
+	return &MySQLListenerGo{parentStack: tree.NewStatStack()}
 }
 
 // EnterEveryRule is called when any rule is entered.

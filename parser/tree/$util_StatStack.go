@@ -1,12 +1,14 @@
-package util
-
-import "MySQLParser-go/parser/tree"
+package tree
 
 type StatStack struct {
-	stats []tree.Stat
+	stats []Stat
 }
 
-func (this *StatStack) Top() tree.Stat {
+func NewStatStack() *StatStack {
+	return new(StatStack)
+}
+
+func (this *StatStack) Top() Stat {
 	if len(this.stats) > 0 {
 		return this.stats[len(this.stats)-1]
 	} else {
@@ -14,11 +16,11 @@ func (this *StatStack) Top() tree.Stat {
 	}
 }
 
-func (this *StatStack) Push(stat tree.Stat) {
+func (this *StatStack) Push(stat Stat) {
 	this.stats = append(this.stats, stat)
 }
 
-func (this *StatStack) Pop() tree.Stat {
+func (this *StatStack) Pop() Stat {
 	if len(this.stats) > 0 {
 		stat := this.stats[len(this.stats)-1]
 		this.stats = this.stats[:len(this.stats)-1]
