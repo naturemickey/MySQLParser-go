@@ -1,6 +1,7 @@
 package tree
 
 type GbobExprs struct {
+	BaseStat
 	element   Element
 	sc        string
 	gbobExprs *GbobExprs

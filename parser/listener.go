@@ -8,7 +8,6 @@ import (
 )
 
 type MySQLListenerGo struct {
-	stat        tree.Stat
 	parentStack *tree.StatStack
 }
 
@@ -27,28 +26,23 @@ func (this *MySQLListenerGo) EnterEveryRule(ctx antlr.ParserRuleContext) {
 func (s *MySQLListenerGo) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
 func (this *MySQLListenerGo) EnterSelectStat(ctx *SelectStatContext) {
-	selectStat := &tree.SelectStat{}
-	if this.parentStack.Top() == nil {
-		this.stat = selectStat
-	} else {
-		// todo
-	}
-	this.parentStack.Push(selectStat)
+	//this.parentStack.Push(&tree.SelectStat{})
 }
 func (this *MySQLListenerGo) ExitSelectStat(ctx *SelectStatContext) {
-	this.parentStack.Pop()
+	//reflect.Type()
+	//this.parentStack.Pop()
 }
 
 func (this *MySQLListenerGo) EnterSelectInner(ctx *SelectInnerContext) {
-	selectInner := &tree.SelectInner{}
-	selectStat := this.parentStack.Top().(*tree.SelectStat)
-	selectStat.SetSelectInner(selectInner)
-
-	this.parentStack.Push(selectInner)
+	//selectInner := &tree.SelectInner{}
+	//selectStat := this.parentStack.Top().(*tree.SelectStat)
+	//selectStat.SetSelectInner(selectInner)
+	//
+	//this.parentStack.Push(selectInner)
 }
 
 func (this *MySQLListenerGo) ExitSelectInner(ctx *SelectInnerContext) {
-	this.parentStack.Pop()
+	//this.parentStack.Pop()
 }
 
 // EnterSelectPrefix is called when production selectPrefix is entered.

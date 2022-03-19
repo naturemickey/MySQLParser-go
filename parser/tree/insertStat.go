@@ -1,6 +1,7 @@
 package tree
 
 type InsertStat struct {
+	BaseStat
 	tableName   string
 	columnNames *ColumnNames
 	valueList   *ValueList

@@ -1,6 +1,7 @@
 package tree
 
 type WhereCondSub struct {
+	BaseStat
 	wc1                WhereCondition
 	wc2                WhereCondition
 	expressionOperator string

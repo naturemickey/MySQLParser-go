@@ -1,6 +1,7 @@
 package tree
 
 type ExprRelational struct {
+	BaseStat
 	left         Element
 	right        Element
 	relationalOp string

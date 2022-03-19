@@ -1,6 +1,7 @@
 package tree
 
 type FunCall struct {
+	BaseStat
 	funName   string
 	paramList *ParamList
 }

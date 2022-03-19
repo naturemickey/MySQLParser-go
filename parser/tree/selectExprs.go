@@ -1,6 +1,7 @@
 package tree
 
 type SelectExprs struct {
+	BaseStat
 	element     Element
 	alias       string
 	selectExprs *SelectExprs

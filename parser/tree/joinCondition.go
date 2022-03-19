@@ -1,6 +1,7 @@
 package tree
 
 type JoinCondition struct {
+	BaseStat
 	whereCondition WhereCondition
 	columnNames    *ColumnNames
 }

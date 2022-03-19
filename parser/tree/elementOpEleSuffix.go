@@ -2,6 +2,7 @@ package tree
 
 // todo 处理elementOpEle中包含op的情况
 type ElementOpEleSuffix struct {
+	BaseStat
 	op           string
 	elementOpEle *ElementOpEle
 }

@@ -6,20 +6,6 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
-//type MyMySQLListener struct {
-//	*antlr4.BaseMySQLListener
-//}
-//
-//var _ antlr4.MySQLListener = &MyMySQLListener{}
-//
-//func NewMySQLListener() *MyMySQLListener {
-//	return new(MyMySQLListener)
-//}
-//
-//func (this *MyMySQLListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
-//	fmt.Println(ctx.GetText())
-//}
-
 func main() {
 	input := antlr.NewInputStream("select * from tab")
 	lexer := antlr4.NewMySQLLexer(input)
@@ -30,5 +16,6 @@ func main() {
 	// p.AddErrorListener(antlr.NewDiagnosticErrorListener(false))
 	// p.BuildParseTrees = true
 	tree := p.Stat()
-	antlr.ParseTreeWalkerDefault.Walk(parser.NewMySQLListener(), tree)
+	listener := parser.NewMySQLListener()
+	antlr.ParseTreeWalkerDefault.Walk(listener, tree)
 }

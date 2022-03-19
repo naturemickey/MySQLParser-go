@@ -1,6 +1,7 @@
 package tree
 
 type SetExprs struct {
+	BaseStat
 	setExprs []*SetExpr
 }
 

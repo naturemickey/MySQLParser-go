@@ -1,6 +1,7 @@
 package tree
 
 type ExprBetweenAnd struct {
+	BaseStat
 	el    Element
 	not   string
 	left  Element

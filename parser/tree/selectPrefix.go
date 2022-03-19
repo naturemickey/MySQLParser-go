@@ -1,6 +1,7 @@
 package tree
 
 type SelectPrefix struct {
+	BaseStat
 	distinct     bool
 	selectExprs  *SelectExprs
 	tables       *Tables

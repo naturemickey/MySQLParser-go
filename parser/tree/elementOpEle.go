@@ -1,6 +1,7 @@
 package tree
 
 type ElementOpEle struct {
+	BaseStat
 	elementOpFactory   ElementOpFactory
 	elementOpEleSuffix *ElementOpEleSuffix
 }

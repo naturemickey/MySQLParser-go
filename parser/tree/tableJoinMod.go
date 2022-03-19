@@ -1,6 +1,7 @@
 package tree
 
 type TableJoinMod struct {
+	BaseStat
 	mod string
 }
 

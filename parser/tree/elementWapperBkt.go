@@ -1,6 +1,7 @@
 package tree
 
 type ElementWapperBkt struct {
+	BaseStat
 	element Element
 }
 

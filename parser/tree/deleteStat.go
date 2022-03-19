@@ -1,6 +1,7 @@
 package tree
 
 type DeleteStat struct {
+	BaseStat
 	tableNameAndAlias *TableNameAndAlias
 	whereCondition    WhereCondition
 	rowCount          string

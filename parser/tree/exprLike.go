@@ -1,6 +1,7 @@
 package tree
 
 type ExprLike struct {
+	BaseStat
 	left  Element
 	right Element
 	not   string

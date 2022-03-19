@@ -1,6 +1,7 @@
 package tree
 
 type Rollback struct {
+	BaseStat
 }
 
 var _ TranscationStat = &Rollback{}

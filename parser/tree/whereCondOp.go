@@ -1,6 +1,7 @@
 package tree
 
 type WhereCondOp struct {
+	BaseStat
 	expression         Expression
 	expressionOperator string
 	whereCondition     WhereCondition

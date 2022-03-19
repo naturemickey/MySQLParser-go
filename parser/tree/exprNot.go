@@ -1,6 +1,7 @@
 package tree
 
 type ExprNot struct {
+	BaseStat
 	expression Expression
 }
 

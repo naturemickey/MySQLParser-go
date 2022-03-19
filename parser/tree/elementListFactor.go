@@ -1,6 +1,7 @@
 package tree
 
 type ElementListFactor struct {
+	BaseStat
 	elementList *ElementList
 }
 

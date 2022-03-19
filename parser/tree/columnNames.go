@@ -3,6 +3,7 @@ package tree
 import "strings"
 
 type ColumnNames struct {
+	BaseStat
 	names []string
 }
 

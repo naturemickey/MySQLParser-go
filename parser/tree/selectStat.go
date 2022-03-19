@@ -1,6 +1,7 @@
 package tree
 
 type SelectStat struct {
+	BaseStat
 	selectInner       *SelectInner
 	selectUnionSuffix *SelectUnionSuffix
 }

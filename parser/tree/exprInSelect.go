@@ -1,6 +1,7 @@
 package tree
 
 type ExprInSelect struct {
+	BaseStat
 	element    Element
 	not        string
 	selectStat *SelectStat

@@ -1,6 +1,7 @@
 package tree
 
 type ElementCase struct {
+	BaseStat
 	value        Element
 	caseWhenPart *CaseWhenPart
 	elseEl       Element

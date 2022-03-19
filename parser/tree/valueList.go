@@ -3,6 +3,7 @@ package tree
 import "strings"
 
 type ValueList struct {
+	BaseStat
 	elements []Element
 }
 

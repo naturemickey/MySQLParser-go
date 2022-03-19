@@ -1,6 +1,7 @@
 package tree
 
 type CaseWhenPart struct {
+	BaseStat
 	whenEl Element
 	whenRe *ExprRelational
 	then   Element

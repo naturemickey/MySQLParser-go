@@ -1,6 +1,7 @@
 package tree
 
 type UpdateSingleTable struct {
+	BaseStat
 	tableNameAndAlias *TableNameAndAlias
 	setExprs          *SetExprs
 	whereCondition    WhereCondition

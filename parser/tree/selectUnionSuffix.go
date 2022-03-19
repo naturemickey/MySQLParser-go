@@ -1,6 +1,7 @@
 package tree
 
 type SelectUnionSuffix struct {
+	BaseStat
 	method       string
 	selectStat   *SelectStat
 	selectSuffix *SelectSuffix

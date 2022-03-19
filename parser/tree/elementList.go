@@ -1,6 +1,7 @@
 package tree
 
 type ElementList struct {
+	BaseStat
 	elements []Element
 }
 

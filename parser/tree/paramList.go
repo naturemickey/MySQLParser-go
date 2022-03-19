@@ -1,6 +1,7 @@
 package tree
 
 type ParamList struct {
+	BaseStat
 	element        Element
 	exprRelational *ExprRelational
 	paramList      *ParamList

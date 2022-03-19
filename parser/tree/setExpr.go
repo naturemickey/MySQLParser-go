@@ -1,6 +1,7 @@
 package tree
 
 type SetExpr struct {
+	BaseStat
 	left         Element
 	right        Element
 	rightDefault string

@@ -1,6 +1,7 @@
 package tree
 
 type UpdateMultipleTable struct {
+	BaseStat
 	tableNameAndAliases *TableNameAndAliases
 	setExprs            *SetExprs
 	whereCondition      WhereCondition

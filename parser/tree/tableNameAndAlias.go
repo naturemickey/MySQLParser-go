@@ -1,6 +1,7 @@
 package tree
 
 type TableNameAndAlias struct {
+	BaseStat
 	name  string
 	alias string
 }

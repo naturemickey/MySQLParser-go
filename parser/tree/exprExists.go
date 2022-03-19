@@ -1,6 +1,7 @@
 package tree
 
 type ExprExists struct {
+	BaseStat
 	not        string
 	selectStat *SelectStat
 }

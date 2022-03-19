@@ -1,6 +1,7 @@
 package tree
 
 type ElementWithPrefix struct {
+	BaseStat
 	prefix           string
 	elementOpFactory ElementOpFactory
 }

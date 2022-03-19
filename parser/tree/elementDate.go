@@ -1,6 +1,7 @@
 package tree
 
 type ElementDate struct {
+	BaseStat
 	dt  string
 	str string
 }

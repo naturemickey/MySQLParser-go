@@ -1,6 +1,7 @@
 package tree
 
 type Tables struct {
+	BaseStat
 	tableRels []TableRel
 }
 

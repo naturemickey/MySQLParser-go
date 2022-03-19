@@ -1,6 +1,7 @@
 package tree
 
 type ExprInValues struct {
+	BaseStat
 	element   Element
 	not       string
 	valueList *ValueList

@@ -1,6 +1,7 @@
 package tree
 
 type ExprIsOrIsNotNull struct {
+	BaseStat
 	element Element
 	not     string
 	what    string

@@ -1,6 +1,7 @@
 package tree
 
 type TableNameAndAliases struct {
+	BaseStat
 	tableNameAndAliases []*TableNameAndAlias
 }
 

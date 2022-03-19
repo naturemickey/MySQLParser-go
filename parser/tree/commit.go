@@ -1,6 +1,7 @@
 package tree
 
 type Commit struct {
+	BaseStat
 }
 
 var _ TranscationStat = &Commit{}

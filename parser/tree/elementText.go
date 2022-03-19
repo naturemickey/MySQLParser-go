@@ -1,6 +1,7 @@
 package tree
 
 type ElementText struct {
+	BaseStat
 	text string
 }
 

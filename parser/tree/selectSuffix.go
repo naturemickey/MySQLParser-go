@@ -1,6 +1,7 @@
 package tree
 
 type SelectSuffix struct {
+	BaseStat
 	orderByExprs *GbobExprs
 	offset       string
 	rowCount     string

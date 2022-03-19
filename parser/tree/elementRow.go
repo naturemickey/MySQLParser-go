@@ -1,6 +1,7 @@
 package tree
 
 type ElementRow struct {
+	BaseStat
 	paramList *ParamList
 }
 

@@ -1,6 +1,7 @@
 package tree
 
 type ElementSubQuery struct {
+	BaseStat
 	sqWith     string
 	selectStat *SelectStat
 }

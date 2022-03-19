@@ -1,6 +1,7 @@
 package tree
 
 type TableJoin struct {
+	BaseStat
 	tableNameAndAlias *TableNameAndAlias
 	tableJoinSuffix   *TableJoinSuffix
 }

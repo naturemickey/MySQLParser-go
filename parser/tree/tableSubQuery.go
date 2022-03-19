@@ -1,6 +1,7 @@
 package tree
 
 type TableSubQuery struct {
+	BaseStat
 	selectStat *SelectStat
 	alias      string
 }

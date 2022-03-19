@@ -1,6 +1,7 @@
 package tree
 
 type TableRecu struct {
+	BaseStat
 	tableRel TableRel
 }
 

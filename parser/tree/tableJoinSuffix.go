@@ -1,6 +1,7 @@
 package tree
 
 type TableJoinSuffix struct {
+	BaseStat
 	tableJoinMod        *TableJoinMod
 	tableNameAndAliases *TableNameAndAliases
 	tableRecu           *TableRecu
