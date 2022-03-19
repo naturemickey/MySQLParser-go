@@ -5,6 +5,12 @@ type Tables struct {
 	tableRels []TableRel
 }
 
+func (this *Tables) Assemble(stats []Stat) {
+	for _, stat := range stats {
+		this.tableRels = append(this.tableRels, stat.(TableRel))
+	}
+}
+
 func (this *Tables) TableRels() []TableRel {
 	return this.tableRels
 }

@@ -30,7 +30,6 @@ func (this *BaseAssemble) Assemble(stats []Stat) {
 			v.Call([]reflect.Value{reflect.ValueOf(stats[j])})
 			j++
 		}
-
 	}
 
 	if j != len(stats)-1 {

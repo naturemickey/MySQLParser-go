@@ -7,6 +7,30 @@ type ExprLike struct {
 	not   string
 }
 
+func (this *ExprLike) Left() Element {
+	return this.left
+}
+
+func (this *ExprLike) SetLeft(left Element) {
+	this.left = left
+}
+
+func (this *ExprLike) Right() Element {
+	return this.right
+}
+
+func (this *ExprLike) SetRight(right Element) {
+	this.right = right
+}
+
+func (this *ExprLike) Not() string {
+	return this.not
+}
+
+func (this *ExprLike) SetNot(not string) {
+	this.not = not
+}
+
 var _ Expression = &ExprLike{}
 
 func (this *ExprLike) String() string {

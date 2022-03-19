@@ -5,6 +5,12 @@ type TableNameAndAliases struct {
 	tableNameAndAliases []*TableNameAndAlias
 }
 
+func (this *TableNameAndAliases) Assemble(stats []Stat) {
+	for _, stat := range stats {
+		this.tableNameAndAliases = append(this.tableNameAndAliases, stat.(*TableNameAndAlias))
+	}
+}
+
 func (this *TableNameAndAliases) TableNameAndAliases() []*TableNameAndAlias {
 	return this.tableNameAndAliases
 }

@@ -6,6 +6,22 @@ type SelectInner struct {
 	selectSuffix *SelectSuffix
 }
 
+func (this *SelectInner) SelectPrefix() *SelectPrefix {
+	return this.selectPrefix
+}
+
+func (this *SelectInner) SetSelectPrefix(selectPrefix *SelectPrefix) {
+	this.selectPrefix = selectPrefix
+}
+
+func (this *SelectInner) SelectSuffix() *SelectSuffix {
+	return this.selectSuffix
+}
+
+func (this *SelectInner) SetSelectSuffix(selectSuffix *SelectSuffix) {
+	this.selectSuffix = selectSuffix
+}
+
 var _ Stat = &SelectInner{}
 
 func (this *SelectInner) String() string {

@@ -34,9 +34,9 @@ func (this *StatStack) MakeProduct() {
 			break
 		}
 	}
-	ss := []Stat{}
-	for j, len := 0, len(this.stats)-i; j < len; j++ {
-		ss[j] = this.stats[j+i].stat
+	var ss []Stat
+	for ; i < len(this.stats); i++ {
+		ss = append(ss, this.stats[i].stat)
 	}
 	product.stat.Assemble(ss)
 	product.status = _product

@@ -5,6 +5,12 @@ type ElementList struct {
 	elements []Element
 }
 
+func (this *ElementList) Assemble(stats []Stat) {
+	for _, stat := range stats {
+		this.elements = append(this.elements, stat.(Element))
+	}
+}
+
 func (this *ElementList) Elements() []Element {
 	return this.elements
 }

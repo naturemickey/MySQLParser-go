@@ -6,6 +6,8 @@ type SelectStat struct {
 	selectUnionSuffix *SelectUnionSuffix
 }
 
+var _ Stat = &SelectStat{}
+
 func (this *SelectStat) SelectInner() *SelectInner {
 	return this.selectInner
 }

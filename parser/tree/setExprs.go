@@ -5,6 +5,12 @@ type SetExprs struct {
 	setExprs []*SetExpr
 }
 
+func (this *SetExprs) Assemble(stats []Stat) {
+	for _, stat := range stats {
+		this.setExprs = append(this.setExprs, stat.(*SetExpr))
+	}
+}
+
 func (this *SetExprs) SetExprs() []*SetExpr {
 	return this.setExprs
 }

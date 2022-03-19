@@ -14,6 +14,12 @@ func (this *ValueList) Elements() []Element {
 func (this *ValueList) SetElements(elements []Element) {
 	this.elements = elements
 }
+func (this *ValueList) Assemble(stats []Stat) {
+	for _, stat := range stats {
+		element := stat.(Element)
+		this.elements = append(this.elements, element)
+	}
+}
 
 var _ Stat = &ValueList{}
 
