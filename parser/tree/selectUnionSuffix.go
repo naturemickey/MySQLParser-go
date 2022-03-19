@@ -7,6 +7,10 @@ type SelectUnionSuffix struct {
 	selectSuffix *SelectSuffix
 }
 
+func (this *SelectUnionSuffix) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *SelectUnionSuffix) Method() string {
 	return this.method
 }

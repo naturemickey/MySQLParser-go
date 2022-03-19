@@ -4,6 +4,10 @@ type Rollback struct {
 	BaseStat
 }
 
+func (this *Rollback) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 var _ TranscationStat = &Rollback{}
 
 func (this *Rollback) String() string {

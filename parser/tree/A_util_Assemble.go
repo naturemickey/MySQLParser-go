@@ -5,15 +5,12 @@ import (
 	"strings"
 )
 
-type BaseAssemble struct {
-}
-
-func (this *BaseAssemble) Assemble(stats []Stat) {
+func Assemble(stat Stat, stats []Stat) {
 	if len(stats) == 0 {
 		return
 	}
 
-	object := reflect.ValueOf(this)
+	object := reflect.ValueOf(stat)
 	myref := object.Elem()
 	typeOfType := myref.Type()
 

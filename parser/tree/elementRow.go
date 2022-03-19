@@ -5,6 +5,10 @@ type ElementRow struct {
 	paramList *ParamList
 }
 
+func (this *ElementRow) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementRow) ParamList() *ParamList {
 	return this.paramList
 }

@@ -5,6 +5,10 @@ type ElementText struct {
 	text string
 }
 
+func (this *ElementText) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementText) Text() string {
 	return this.text
 }

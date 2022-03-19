@@ -7,6 +7,10 @@ type ColumnNames struct {
 	names []string
 }
 
+func (this *ColumnNames) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ColumnNames) Names() []string {
 	return this.names
 }

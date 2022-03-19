@@ -6,6 +6,10 @@ type FunCall struct {
 	paramList *ParamList
 }
 
+func (this *FunCall) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *FunCall) FunName() string {
 	return this.funName
 }

@@ -8,6 +8,10 @@ type InsertStat struct {
 	selectStat  *SelectStat
 }
 
+func (this *InsertStat) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *InsertStat) TableName() string {
 	return this.tableName
 }

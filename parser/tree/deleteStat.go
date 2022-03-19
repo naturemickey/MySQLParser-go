@@ -7,6 +7,10 @@ type DeleteStat struct {
 	rowCount          string
 }
 
+func (this *DeleteStat) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *DeleteStat) TableNameAndAlias() *TableNameAndAlias {
 	return this.tableNameAndAlias
 }

@@ -6,6 +6,10 @@ type JoinCondition struct {
 	columnNames    *ColumnNames
 }
 
+func (this *JoinCondition) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *JoinCondition) WhereCondition() WhereCondition {
 	return this.whereCondition
 }

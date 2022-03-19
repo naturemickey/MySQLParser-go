@@ -6,6 +6,10 @@ type ElementOpEle struct {
 	elementOpEleSuffix *ElementOpEleSuffix
 }
 
+func (this *ElementOpEle) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementOpEle) ElementOpFactory() ElementOpFactory {
 	return this.elementOpFactory
 }

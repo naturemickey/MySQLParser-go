@@ -10,6 +10,10 @@ type SelectPrefix struct {
 	having       WhereCondition
 }
 
+func (this *SelectPrefix) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *SelectPrefix) Distinct() bool {
 	return this.distinct
 }

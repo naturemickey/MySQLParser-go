@@ -8,6 +8,10 @@ type ExprBetweenAnd struct {
 	right Element
 }
 
+func (this *ExprBetweenAnd) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprBetweenAnd) El() Element {
 	return this.el
 }

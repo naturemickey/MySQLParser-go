@@ -5,6 +5,10 @@ type TableRecu struct {
 	tableRel TableRel
 }
 
+func (this *TableRecu) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *TableRecu) TableRel() TableRel {
 	return this.tableRel
 }

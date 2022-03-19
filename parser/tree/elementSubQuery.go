@@ -6,6 +6,10 @@ type ElementSubQuery struct {
 	selectStat *SelectStat
 }
 
+func (this *ElementSubQuery) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementSubQuery) SqWith() string {
 	return this.sqWith
 }

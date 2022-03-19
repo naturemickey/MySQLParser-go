@@ -7,6 +7,10 @@ type SelectExprs struct {
 	selectExprs *SelectExprs
 }
 
+func (this *SelectExprs) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *SelectExprs) Element() Element {
 	return this.element
 }

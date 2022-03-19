@@ -6,6 +6,10 @@ type TableNameAndAlias struct {
 	alias string
 }
 
+func (this *TableNameAndAlias) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *TableNameAndAlias) Name() string {
 	return this.name
 }

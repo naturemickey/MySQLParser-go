@@ -7,6 +7,10 @@ type SetExpr struct {
 	rightDefault string
 }
 
+func (this *SetExpr) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *SetExpr) Left() Element {
 	return this.left
 }

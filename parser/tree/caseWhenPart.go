@@ -8,6 +8,10 @@ type CaseWhenPart struct {
 	suffix *CaseWhenPart
 }
 
+func (this *CaseWhenPart) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *CaseWhenPart) WhenEl() Element {
 	return this.whenEl
 }

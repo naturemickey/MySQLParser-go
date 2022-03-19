@@ -7,6 +7,10 @@ type ParamList struct {
 	paramList      *ParamList
 }
 
+func (this *ParamList) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 var _ Stat = &ParamList{}
 
 func (this *ParamList) String() string {

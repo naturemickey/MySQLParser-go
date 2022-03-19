@@ -5,6 +5,10 @@ type ElementListFactor struct {
 	elementList *ElementList
 }
 
+func (this *ElementListFactor) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementListFactor) ElementList() *ElementList {
 	return this.elementList
 }

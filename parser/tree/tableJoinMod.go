@@ -5,6 +5,10 @@ type TableJoinMod struct {
 	mod string
 }
 
+func (this *TableJoinMod) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *TableJoinMod) Mod() string {
 	return this.mod
 }

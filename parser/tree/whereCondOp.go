@@ -7,6 +7,10 @@ type WhereCondOp struct {
 	whereCondition     WhereCondition
 }
 
+func (this *WhereCondOp) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *WhereCondOp) Expression() Expression {
 	return this.expression
 }

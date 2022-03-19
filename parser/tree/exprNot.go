@@ -5,6 +5,10 @@ type ExprNot struct {
 	expression Expression
 }
 
+func (this *ExprNot) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprNot) Expression() Expression {
 	return this.expression
 }

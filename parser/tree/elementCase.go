@@ -7,6 +7,10 @@ type ElementCase struct {
 	elseEl       Element
 }
 
+func (this *ElementCase) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 var _ ElementOpFactory = &ElementCase{}
 
 func (this *ElementCase) String() string {

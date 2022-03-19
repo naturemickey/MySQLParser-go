@@ -10,6 +10,10 @@ type SelectSuffix struct {
 	lock         string
 }
 
+func (this *SelectSuffix) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *SelectSuffix) HasLimit() bool {
 	return this.hasLimit
 }

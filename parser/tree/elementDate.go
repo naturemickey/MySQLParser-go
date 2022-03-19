@@ -6,6 +6,10 @@ type ElementDate struct {
 	str string
 }
 
+func (this *ElementDate) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementDate) Dt() string {
 	return this.dt
 }

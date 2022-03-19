@@ -6,6 +6,10 @@ type TableJoin struct {
 	tableJoinSuffix   *TableJoinSuffix
 }
 
+func (this *TableJoin) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *TableJoin) TableNameAndAlias() *TableNameAndAlias {
 	return this.tableNameAndAlias
 }

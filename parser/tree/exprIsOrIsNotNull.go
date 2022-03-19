@@ -7,6 +7,10 @@ type ExprIsOrIsNotNull struct {
 	what    string
 }
 
+func (this *ExprIsOrIsNotNull) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprIsOrIsNotNull) Element() Element {
 	return this.element
 }

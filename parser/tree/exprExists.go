@@ -6,6 +6,10 @@ type ExprExists struct {
 	selectStat *SelectStat
 }
 
+func (this *ExprExists) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprExists) Not() string {
 	return this.not
 }

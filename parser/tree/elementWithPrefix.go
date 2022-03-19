@@ -6,6 +6,10 @@ type ElementWithPrefix struct {
 	elementOpFactory ElementOpFactory
 }
 
+func (this *ElementWithPrefix) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementWithPrefix) Prefix() string {
 	return this.prefix
 }

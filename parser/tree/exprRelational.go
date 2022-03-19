@@ -7,6 +7,10 @@ type ExprRelational struct {
 	relationalOp string
 }
 
+func (this *ExprRelational) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprRelational) Left() Element {
 	return this.left
 }

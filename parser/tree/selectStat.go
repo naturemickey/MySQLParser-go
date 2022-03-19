@@ -6,6 +6,10 @@ type SelectStat struct {
 	selectUnionSuffix *SelectUnionSuffix
 }
 
+func (this *SelectStat) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 var _ Stat = &SelectStat{}
 
 func (this *SelectStat) SelectInner() *SelectInner {

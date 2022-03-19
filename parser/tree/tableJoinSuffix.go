@@ -9,6 +9,10 @@ type TableJoinSuffix struct {
 	tableJoinSuffix     *TableJoinSuffix
 }
 
+func (this *TableJoinSuffix) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *TableJoinSuffix) TableJoinMod() *TableJoinMod {
 	return this.tableJoinMod
 }

@@ -5,6 +5,10 @@ type ElementWapperBkt struct {
 	element Element
 }
 
+func (this *ElementWapperBkt) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementWapperBkt) Element() Element {
 	return this.element
 }

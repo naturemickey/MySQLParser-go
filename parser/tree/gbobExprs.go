@@ -7,6 +7,10 @@ type GbobExprs struct {
 	gbobExprs *GbobExprs
 }
 
+func (this *GbobExprs) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *GbobExprs) Element() Element {
 	return this.element
 }

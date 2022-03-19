@@ -7,6 +7,10 @@ type ExprInValues struct {
 	valueList *ValueList
 }
 
+func (this *ExprInValues) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprInValues) Element() Element {
 	return this.element
 }

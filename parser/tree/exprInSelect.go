@@ -7,6 +7,10 @@ type ExprInSelect struct {
 	selectStat *SelectStat
 }
 
+func (this *ExprInSelect) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprInSelect) Element() Element {
 	return this.element
 }

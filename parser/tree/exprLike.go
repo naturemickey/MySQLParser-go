@@ -7,6 +7,10 @@ type ExprLike struct {
 	not   string
 }
 
+func (this *ExprLike) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ExprLike) Left() Element {
 	return this.left
 }

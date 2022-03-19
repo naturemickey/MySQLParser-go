@@ -6,6 +6,10 @@ type TableSubQuery struct {
 	alias      string
 }
 
+func (this *TableSubQuery) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *TableSubQuery) SelectStat() *SelectStat {
 	return this.selectStat
 }

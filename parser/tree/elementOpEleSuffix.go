@@ -7,6 +7,10 @@ type ElementOpEleSuffix struct {
 	elementOpEle *ElementOpEle
 }
 
+func (this *ElementOpEleSuffix) Assemble(stats []Stat) {
+	Assemble(this, stats)
+}
+
 func (this *ElementOpEleSuffix) Op() string {
 	return this.op
 }
