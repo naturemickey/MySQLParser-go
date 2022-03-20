@@ -5,6 +5,10 @@ type SetExprs struct {
 	setExprs []*SetExpr
 }
 
+func (this *SetExprs) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SetExprs) Assemble(stats []Stat) {
 	for _, stat := range stats {
 		this.setExprs = append(this.setExprs, stat.(*SetExpr))
@@ -19,7 +23,7 @@ func (this *SetExprs) SetSetExprs(setExprs []*SetExpr) {
 	this.setExprs = setExprs
 }
 
-var _ Stat = &SetExprs{}
+var _ Stat = (*SetExprs)(nil)
 
 func (this *SetExprs) String() string {
 	sql := NewStringBuilder()

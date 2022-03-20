@@ -10,6 +10,10 @@ type SelectPrefix struct {
 	having       WhereCondition
 }
 
+func (this *SelectPrefix) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SelectPrefix) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -62,7 +66,7 @@ func (this *SelectPrefix) SetHaving(having WhereCondition) {
 	this.having = having
 }
 
-var _ Stat = &SelectPrefix{}
+var _ Stat = (*SelectPrefix)(nil)
 
 func (this *SelectPrefix) String() string {
 	sql := NewStringBuilder()

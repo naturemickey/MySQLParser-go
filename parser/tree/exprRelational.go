@@ -7,6 +7,10 @@ type ExprRelational struct {
 	relationalOp string
 }
 
+func (this *ExprRelational) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ExprRelational) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *ExprRelational) SetRelationalOp(relationalOp string) {
 	this.relationalOp = relationalOp
 }
 
-var _ Expression = &ExprRelational{}
+var _ Expression = (*ExprRelational)(nil)
 
 func (this *ExprRelational) String() string {
 	return this.left.String() + " " + this.relationalOp + " " + this.right.String()

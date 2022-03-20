@@ -6,6 +6,10 @@ type FunCall struct {
 	paramList *ParamList
 }
 
+func (this *FunCall) Children() []Stat {
+	return Children(this)
+}
+
 func (this *FunCall) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -36,7 +40,7 @@ func (this *FunCall) SetParamList(paramList *ParamList) {
 	this.paramList = paramList
 }
 
-var _ ElementOpFactory = &FunCall{}
+var _ ElementOpFactory = (*FunCall)(nil)
 
 func (this *FunCall) String() string {
 	sql := NewStringBuilder().Append(this.funName).Append("(")

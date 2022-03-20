@@ -7,6 +7,10 @@ type GbobExprs struct {
 	gbobExprs *GbobExprs
 }
 
+func (this *GbobExprs) Children() []Stat {
+	return Children(this)
+}
+
 func (this *GbobExprs) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *GbobExprs) SetGbobExprs(gbobExprs *GbobExprs) {
 	this.gbobExprs = gbobExprs
 }
 
-var _ Stat = &GbobExprs{}
+var _ Stat = (*GbobExprs)(nil)
 
 func (this *GbobExprs) String() string {
 	sql := NewStringBuilder()

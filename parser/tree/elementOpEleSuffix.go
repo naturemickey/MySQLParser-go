@@ -1,14 +1,18 @@
 package tree
 
-// todo 处理elementOpEle中包含op的情况
 type ElementOpEleSuffix struct {
 	BaseStat
 	op           string
 	elementOpEle *ElementOpEle
 }
 
+func (this *ElementOpEleSuffix) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementOpEleSuffix) Assemble(stats []Stat) {
 	if this.op == "" {
+		// 处理elementOpEle中包含op的情况
 		element := stats[0].(*ElementOpEle).ElementOpFactory().(*ElementTextParam)
 		text := []rune(element.Text())
 		this.op = string([]rune{text[0]})
@@ -34,7 +38,7 @@ func (this *ElementOpEleSuffix) SetElementOpEle(elementOpEle *ElementOpEle) {
 	this.elementOpEle = elementOpEle
 }
 
-var _ Stat = &ElementOpEleSuffix{}
+var _ Stat = (*ElementOpEleSuffix)(nil)
 
 func (this *ElementOpEleSuffix) String() string {
 	sql := NewStringBuilder()

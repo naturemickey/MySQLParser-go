@@ -7,6 +7,10 @@ type DeleteStat struct {
 	rowCount          string
 }
 
+func (this *DeleteStat) Children() []Stat {
+	return Children(this)
+}
+
 func (this *DeleteStat) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *DeleteStat) SetRowCount(rowCount string) {
 	this.rowCount = rowCount
 }
 
-var _ Stat = &DeleteStat{}
+var _ Stat = (*DeleteStat)(nil)
 
 func (this *DeleteStat) String() string {
 	sql := NewStringBuilder()

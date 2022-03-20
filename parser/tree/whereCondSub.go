@@ -7,6 +7,10 @@ type WhereCondSub struct {
 	expressionOperator string
 }
 
+func (this *WhereCondSub) Children() []Stat {
+	return Children(this)
+}
+
 func (this *WhereCondSub) _WhereCondition() {
 	//TODO implement me
 	panic("implement me")
@@ -40,7 +44,7 @@ func (this *WhereCondSub) SetExpressionOperator(expressionOperator string) {
 	this.expressionOperator = expressionOperator
 }
 
-var _ WhereCondition = &WhereCondSub{}
+var _ WhereCondition = (*WhereCondSub)(nil)
 
 func (this *WhereCondSub) String() string {
 	sql := NewStringBuilder()

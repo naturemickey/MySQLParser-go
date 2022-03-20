@@ -6,6 +6,10 @@ type ElementWithPrefix struct {
 	elementOpFactory ElementOpFactory
 }
 
+func (this *ElementWithPrefix) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementWithPrefix) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -36,7 +40,7 @@ func (this *ElementWithPrefix) SetElementOpFactory(elementOpFactory ElementOpFac
 	this.elementOpFactory = elementOpFactory
 }
 
-var _ ElementOpFactory = &ElementWithPrefix{}
+var _ ElementOpFactory = (*ElementWithPrefix)(nil)
 
 func (this *ElementWithPrefix) String() string {
 	return this.prefix + " " + this.elementOpFactory.String()

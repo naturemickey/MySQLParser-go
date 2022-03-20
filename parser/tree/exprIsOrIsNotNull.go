@@ -7,6 +7,10 @@ type ExprIsOrIsNotNull struct {
 	what    string
 }
 
+func (this *ExprIsOrIsNotNull) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ExprIsOrIsNotNull) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *ExprIsOrIsNotNull) SetWhat(what string) {
 	this.what = what
 }
 
-var _ Expression = &ExprIsOrIsNotNull{}
+var _ Expression = (*ExprIsOrIsNotNull)(nil)
 
 func (this *ExprIsOrIsNotNull) String() string {
 	sql := NewStringBuilder().AppendStat(this.element).Append(" is ")

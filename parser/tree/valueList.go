@@ -7,6 +7,10 @@ type ValueList struct {
 	elements []Element
 }
 
+func (this *ValueList) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ValueList) Elements() []Element {
 	return this.elements
 }
@@ -21,7 +25,7 @@ func (this *ValueList) Assemble(stats []Stat) {
 	}
 }
 
-var _ Stat = &ValueList{}
+var _ Stat = (*ValueList)(nil)
 
 func (this *ValueList) String() string {
 	elementsStr := []string{}

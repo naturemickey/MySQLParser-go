@@ -9,6 +9,10 @@ type TableJoinSuffix struct {
 	tableJoinSuffix     *TableJoinSuffix
 }
 
+func (this *TableJoinSuffix) Children() []Stat {
+	return Children(this)
+}
+
 func (this *TableJoinSuffix) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -53,7 +57,7 @@ func (this *TableJoinSuffix) SetTableJoinSuffix(tableJoinSuffix *TableJoinSuffix
 	this.tableJoinSuffix = tableJoinSuffix
 }
 
-var _ Stat = &TableJoinSuffix{}
+var _ Stat = (*TableJoinSuffix)(nil)
 
 func (this *TableJoinSuffix) String() string {
 	sql := NewStringBuilder()

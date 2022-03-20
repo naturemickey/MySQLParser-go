@@ -8,6 +8,10 @@ type CaseWhenPart struct {
 	suffix *CaseWhenPart
 }
 
+func (this *CaseWhenPart) Children() []Stat {
+	return Children(this)
+}
+
 func (this *CaseWhenPart) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -44,7 +48,7 @@ func (this *CaseWhenPart) SetSuffix(suffix *CaseWhenPart) {
 	this.suffix = suffix
 }
 
-var _ Stat = &CaseWhenPart{}
+var _ Stat = (*CaseWhenPart)(nil)
 
 func (this *CaseWhenPart) String() string {
 	sql := NewStringBuilder().Append("when ")

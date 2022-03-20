@@ -5,6 +5,10 @@ type Tables struct {
 	tableRels []TableRel
 }
 
+func (this *Tables) Children() []Stat {
+	return Children(this)
+}
+
 func (this *Tables) Assemble(stats []Stat) {
 	for _, stat := range stats {
 		this.tableRels = append(this.tableRels, stat.(TableRel))
@@ -19,7 +23,7 @@ func (this *Tables) SetTableRels(tableRels []TableRel) {
 	this.tableRels = tableRels
 }
 
-var _ Stat = &Tables{}
+var _ Stat = (*Tables)(nil)
 
 func (this *Tables) String() string {
 	sql := NewStringBuilder()

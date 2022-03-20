@@ -5,6 +5,10 @@ type TableNameAndAliases struct {
 	tableNameAndAliases []*TableNameAndAlias
 }
 
+func (this *TableNameAndAliases) Children() []Stat {
+	return Children(this)
+}
+
 func (this *TableNameAndAliases) Assemble(stats []Stat) {
 	for _, stat := range stats {
 		this.tableNameAndAliases = append(this.tableNameAndAliases, stat.(*TableNameAndAlias))
@@ -19,7 +23,7 @@ func (this *TableNameAndAliases) SetTableNameAndAliases(tableNameAndAliases []*T
 	this.tableNameAndAliases = tableNameAndAliases
 }
 
-var _ Stat = &TableNameAndAliases{}
+var _ Stat = (*TableNameAndAliases)(nil)
 
 func (this *TableNameAndAliases) String() string {
 	sql := NewStringBuilder()

@@ -6,6 +6,10 @@ type ElementSubQuery struct {
 	selectStat *SelectStat
 }
 
+func (this *ElementSubQuery) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementSubQuery) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -36,7 +40,7 @@ func (this *ElementSubQuery) SetSelectStat(selectStat *SelectStat) {
 	this.selectStat = selectStat
 }
 
-var _ ElementOpFactory = &ElementSubQuery{}
+var _ ElementOpFactory = (*ElementSubQuery)(nil)
 
 func (this *ElementSubQuery) String() string {
 	sql := NewStringBuilder()

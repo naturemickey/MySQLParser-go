@@ -7,6 +7,10 @@ type UpdateMultipleTable struct {
 	whereCondition      WhereCondition
 }
 
+func (this *UpdateMultipleTable) Children() []Stat {
+	return Children(this)
+}
+
 func (this *UpdateMultipleTable) _UpdateStat() {
 	//TODO implement me
 	panic("implement me")
@@ -40,7 +44,7 @@ func (this *UpdateMultipleTable) SetWhereCondition(whereCondition WhereCondition
 	this.whereCondition = whereCondition
 }
 
-var _ UpdateStat = &UpdateMultipleTable{}
+var _ UpdateStat = (*UpdateMultipleTable)(nil)
 
 func (this *UpdateMultipleTable) String() string {
 	sql := NewStringBuilder()

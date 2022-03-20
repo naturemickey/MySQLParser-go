@@ -5,6 +5,10 @@ type ElementText struct {
 	text string
 }
 
+func (this *ElementText) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementText) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -27,7 +31,7 @@ func (this *ElementText) SetText(text string) {
 	this.text = text
 }
 
-var _ ElementOpFactory = &ElementText{}
+var _ ElementOpFactory = (*ElementText)(nil)
 
 func (this *ElementText) String() string {
 	return this.text

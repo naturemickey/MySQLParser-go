@@ -2,14 +2,13 @@ package main
 
 import (
 	"MySQLParser-go/parser"
-	"MySQLParser-go/parser/tree"
 )
 
 func main() {
-	stat := parser.ParseSQL("select * from tab")
+	stat := parser.ParseSQL("insert into aaa(a,b,c) values(?,?,?)")
 	println(stat.String())
 
-	for _, s := range tree.Children(stat) {
+	for _, s := range stat.Children() {
 		if s != nil {
 			println(s.String())
 		}

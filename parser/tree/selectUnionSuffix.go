@@ -7,6 +7,10 @@ type SelectUnionSuffix struct {
 	selectSuffix *SelectSuffix
 }
 
+func (this *SelectUnionSuffix) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SelectUnionSuffix) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *SelectUnionSuffix) SetSelectSuffix(selectSuffix *SelectSuffix) {
 	this.selectSuffix = selectSuffix
 }
 
-var _ Stat = &SelectUnionSuffix{}
+var _ Stat = (*SelectUnionSuffix)(nil)
 
 func (this *SelectUnionSuffix) String() string {
 	sql := NewStringBuilder()

@@ -6,6 +6,10 @@ type JoinCondition struct {
 	columnNames    *ColumnNames
 }
 
+func (this *JoinCondition) Children() []Stat {
+	return Children(this)
+}
+
 func (this *JoinCondition) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -26,7 +30,7 @@ func (this *JoinCondition) SetColumnNames(columnNames *ColumnNames) {
 	this.columnNames = columnNames
 }
 
-var _ Stat = &JoinCondition{}
+var _ Stat = (*JoinCondition)(nil)
 
 func (this *JoinCondition) String() string {
 	sql := NewStringBuilder()

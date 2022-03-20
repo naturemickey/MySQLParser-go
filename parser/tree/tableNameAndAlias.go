@@ -6,6 +6,10 @@ type TableNameAndAlias struct {
 	alias string
 }
 
+func (this *TableNameAndAlias) Children() []Stat {
+	return Children(this)
+}
+
 func (this *TableNameAndAlias) _TableRel() {
 	//TODO implement me
 	panic("implement me")
@@ -36,7 +40,7 @@ func (this *TableNameAndAlias) SetAlias(alias string) {
 	this.alias = alias
 }
 
-var _ TableFactor = &TableNameAndAlias{}
+var _ TableFactor = (*TableNameAndAlias)(nil)
 
 func (this *TableNameAndAlias) String() string {
 	if this.alias == "" {

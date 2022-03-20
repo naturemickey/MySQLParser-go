@@ -7,6 +7,10 @@ type ExprLike struct {
 	not   string
 }
 
+func (this *ExprLike) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ExprLike) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *ExprLike) SetNot(not string) {
 	this.not = not
 }
 
-var _ Expression = &ExprLike{}
+var _ Expression = (*ExprLike)(nil)
 
 func (this *ExprLike) String() string {
 	sql := NewStringBuilder().AppendStat(this.left).Append(" ")

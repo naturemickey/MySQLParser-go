@@ -7,6 +7,10 @@ type ExprInSelect struct {
 	selectStat *SelectStat
 }
 
+func (this *ExprInSelect) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ExprInSelect) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *ExprInSelect) SetSelectStat(selectStat *SelectStat) {
 	this.selectStat = selectStat
 }
 
-var _ Expression = &ExprInSelect{}
+var _ Expression = (*ExprInSelect)(nil)
 
 func (this *ExprInSelect) String() string {
 	sql := NewStringBuilder()

@@ -8,6 +8,10 @@ type InsertStat struct {
 	selectStat  *SelectStat
 }
 
+func (this *InsertStat) Children() []Stat {
+	return Children(this)
+}
+
 func (this *InsertStat) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -44,7 +48,7 @@ func (this *InsertStat) SetSelectStat(selectStat *SelectStat) {
 	this.selectStat = selectStat
 }
 
-var _ Stat = &InsertStat{}
+var _ Stat = (*InsertStat)(nil)
 
 func (this *InsertStat) String() string {
 	sql := NewStringBuilder().Append("insert into ").Append(this.tableName)

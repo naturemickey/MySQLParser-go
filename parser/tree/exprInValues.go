@@ -7,6 +7,10 @@ type ExprInValues struct {
 	valueList *ValueList
 }
 
+func (this *ExprInValues) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ExprInValues) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *ExprInValues) SetValueList(valueList *ValueList) {
 	this.valueList = valueList
 }
 
-var _ Expression = &ExprInValues{}
+var _ Expression = (*ExprInValues)(nil)
 
 func (this *ExprInValues) String() string {
 	sql := NewStringBuilder()

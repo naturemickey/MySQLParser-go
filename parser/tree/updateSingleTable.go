@@ -8,6 +8,10 @@ type UpdateSingleTable struct {
 	rowCount          string
 }
 
+func (this *UpdateSingleTable) Children() []Stat {
+	return Children(this)
+}
+
 func (this *UpdateSingleTable) _UpdateStat() {
 	//TODO implement me
 	panic("implement me")
@@ -49,7 +53,7 @@ func (this *UpdateSingleTable) SetRowCount(rowCount string) {
 	this.rowCount = rowCount
 }
 
-var _ UpdateStat = &UpdateSingleTable{}
+var _ UpdateStat = (*UpdateSingleTable)(nil)
 
 func (this *UpdateSingleTable) String() string {
 	sql := NewStringBuilder()

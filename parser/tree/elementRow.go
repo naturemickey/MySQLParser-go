@@ -5,6 +5,10 @@ type ElementRow struct {
 	paramList *ParamList
 }
 
+func (this *ElementRow) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementRow) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -27,7 +31,7 @@ func (this *ElementRow) SetParamList(paramList *ParamList) {
 	this.paramList = paramList
 }
 
-var _ ElementOpFactory = &ElementRow{}
+var _ ElementOpFactory = (*ElementRow)(nil)
 
 func (this *ElementRow) String() string {
 	return "row(" + this.paramList.String() + ")"

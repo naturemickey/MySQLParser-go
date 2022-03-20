@@ -6,6 +6,10 @@ type ElementOpEle struct {
 	elementOpEleSuffix *ElementOpEleSuffix
 }
 
+func (this *ElementOpEle) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementOpEle) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -31,7 +35,7 @@ func (this *ElementOpEle) SetElementOpEleSuffix(elementOpEleSuffix *ElementOpEle
 	this.elementOpEleSuffix = elementOpEleSuffix
 }
 
-var _ Element = &ElementOpEle{}
+var _ Element = (*ElementOpEle)(nil)
 
 func (this *ElementOpEle) String() string {
 	sql := NewStringBuilder()

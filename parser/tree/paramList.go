@@ -7,6 +7,10 @@ type ParamList struct {
 	paramList      *ParamList
 }
 
+func (this *ParamList) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ParamList) Element() Element {
 	return this.element
 }
@@ -35,7 +39,7 @@ func (this *ParamList) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
 
-var _ Stat = &ParamList{}
+var _ Stat = (*ParamList)(nil)
 
 func (this *ParamList) String() string {
 	sql := NewStringBuilder()

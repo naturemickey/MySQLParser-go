@@ -6,6 +6,10 @@ type ElementDate struct {
 	str string
 }
 
+func (this *ElementDate) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementDate) _Element() {
 	//TODO implement me
 	panic("implement me")
@@ -36,7 +40,7 @@ func (this *ElementDate) SetStr(str string) {
 	this.str = str
 }
 
-var _ ElementOpFactory = &ElementDate{}
+var _ ElementOpFactory = (*ElementDate)(nil)
 
 func (this *ElementDate) String() string {
 	return NewStringBuilder().Append(this.dt).Append(" ").Append(this.str).String()

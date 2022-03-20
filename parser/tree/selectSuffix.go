@@ -10,6 +10,10 @@ type SelectSuffix struct {
 	lock         string
 }
 
+func (this *SelectSuffix) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SelectSuffix) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -62,7 +66,7 @@ func (this *SelectSuffix) SetLock(lock string) {
 	this.lock = lock
 }
 
-var _ Stat = &SelectSuffix{}
+var _ Stat = (*SelectSuffix)(nil)
 
 func (this *SelectSuffix) String() string {
 	sql := NewStringBuilder()

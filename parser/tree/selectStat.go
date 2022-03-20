@@ -6,11 +6,13 @@ type SelectStat struct {
 	selectUnionSuffix *SelectUnionSuffix
 }
 
+func (this *SelectStat) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SelectStat) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
-
-var _ Stat = &SelectStat{}
 
 func (this *SelectStat) SelectInner() *SelectInner {
 	return this.selectInner
@@ -27,6 +29,8 @@ func (this *SelectStat) SelectUnionSuffix() *SelectUnionSuffix {
 func (this *SelectStat) SetSelectUnionSuffix(selectUnionSuffix *SelectUnionSuffix) {
 	this.selectUnionSuffix = selectUnionSuffix
 }
+
+var _ Stat = (*SelectStat)(nil)
 
 func (this *SelectStat) String() string {
 	if this.selectUnionSuffix == nil {

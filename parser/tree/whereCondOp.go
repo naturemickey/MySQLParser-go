@@ -7,6 +7,10 @@ type WhereCondOp struct {
 	whereCondition     WhereCondition
 }
 
+func (this *WhereCondOp) Children() []Stat {
+	return Children(this)
+}
+
 func (this *WhereCondOp) _WhereCondition() {
 	//TODO implement me
 	panic("implement me")
@@ -40,7 +44,7 @@ func (this *WhereCondOp) SetWhereCondition(whereCondition WhereCondition) {
 	this.whereCondition = whereCondition
 }
 
-var _ WhereCondition = &WhereCondOp{}
+var _ WhereCondition = (*WhereCondOp)(nil)
 
 func (this *WhereCondOp) String() string {
 	sql := NewStringBuilder()

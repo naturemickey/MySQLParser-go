@@ -7,6 +7,10 @@ type SetExpr struct {
 	rightDefault string
 }
 
+func (this *SetExpr) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SetExpr) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -35,7 +39,7 @@ func (this *SetExpr) SetRightDefault(rightDefault string) {
 	this.rightDefault = rightDefault
 }
 
-var _ Stat = &SetExpr{}
+var _ Stat = (*SetExpr)(nil)
 
 func (this *SetExpr) String() string {
 	sql := NewStringBuilder()

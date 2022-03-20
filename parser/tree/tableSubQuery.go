@@ -6,6 +6,10 @@ type TableSubQuery struct {
 	alias      string
 }
 
+func (this *TableSubQuery) Children() []Stat {
+	return Children(this)
+}
+
 func (this *TableSubQuery) _TableRel() {
 	//TODO implement me
 	panic("implement me")
@@ -36,7 +40,7 @@ func (this *TableSubQuery) SetAlias(alias string) {
 	this.alias = alias
 }
 
-var _ TableFactor = &TableSubQuery{}
+var _ TableFactor = (*TableSubQuery)(nil)
 
 func (this *TableSubQuery) String() string {
 	sql := NewStringBuilder()

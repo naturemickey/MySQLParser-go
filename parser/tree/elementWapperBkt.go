@@ -5,6 +5,10 @@ type ElementWapperBkt struct {
 	element Element
 }
 
+func (this *ElementWapperBkt) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementWapperBkt) _Element() {
 	//TODO implement me
 	panic("implement me")

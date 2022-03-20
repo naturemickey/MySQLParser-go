@@ -8,6 +8,10 @@ type ExprBetweenAnd struct {
 	right Element
 }
 
+func (this *ExprBetweenAnd) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ExprBetweenAnd) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -44,7 +48,7 @@ func (this *ExprBetweenAnd) SetRight(right Element) {
 	this.right = right
 }
 
-var _ Expression = &ExprBetweenAnd{}
+var _ Expression = (*ExprBetweenAnd)(nil)
 
 func (this *ExprBetweenAnd) String() string {
 	sql := NewStringBuilder()

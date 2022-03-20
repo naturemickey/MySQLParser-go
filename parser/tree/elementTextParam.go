@@ -4,4 +4,4 @@ type ElementTextParam struct {
 	ElementText
 }
 
-var _ ElementOpFactory = &ElementTextParam{}
+var _ ElementOpFactory = (*ElementTextParam)(nil)

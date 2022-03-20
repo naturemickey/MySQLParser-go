@@ -6,6 +6,10 @@ type SelectInner struct {
 	selectSuffix *SelectSuffix
 }
 
+func (this *SelectInner) Children() []Stat {
+	return Children(this)
+}
+
 func (this *SelectInner) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -26,7 +30,7 @@ func (this *SelectInner) SetSelectSuffix(selectSuffix *SelectSuffix) {
 	this.selectSuffix = selectSuffix
 }
 
-var _ Stat = &SelectInner{}
+var _ Stat = (*SelectInner)(nil)
 
 func (this *SelectInner) String() string {
 	prefix := this.selectPrefix.String()

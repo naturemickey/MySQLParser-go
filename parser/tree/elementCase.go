@@ -7,6 +7,10 @@ type ElementCase struct {
 	elseEl       Element
 }
 
+func (this *ElementCase) Children() []Stat {
+	return Children(this)
+}
+
 func (this *ElementCase) Value() Element {
 	return this.value
 }
@@ -45,7 +49,7 @@ func (this *ElementCase) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
 
-var _ ElementOpFactory = &ElementCase{}
+var _ ElementOpFactory = (*ElementCase)(nil)
 
 func (this *ElementCase) String() string {
 	sql := NewStringBuilder()
