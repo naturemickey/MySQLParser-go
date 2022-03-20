@@ -47,14 +47,18 @@ func (this *InsertStat) SetSelectStat(selectStat *SelectStat) {
 var _ Stat = &InsertStat{}
 
 func (this *InsertStat) String() string {
-	str := "insert into " + this.tableName + " "
+	sql := NewStringBuilder().Append("insert into ").Append(this.tableName)
+	// str := "insert into " + this.tableName
 	if this.columnNames != nil {
-		str += "(" + this.columnNames.String() + ")"
+		sql.Append("(").AppendStat(this.columnNames).Append(")")
+		//str += "(" + this.columnNames.String() + ")"
 	}
 	if this.valueList != nil {
-		str += "values(" + this.valueList.String() + ")"
+		sql.Append(" values(").AppendStat(this.valueList).Append(")")
+		//str += " values(" + this.valueList.String() + ")"
 	} else {
-		str += this.selectStat.String()
+		sql.Append(" ").AppendStat(this.selectStat)
+		//str += " " + this.selectStat.String()
 	}
-	return str
+	return sql.String()
 }

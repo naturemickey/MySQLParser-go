@@ -6,7 +6,10 @@ import (
 )
 
 func main() {
-	testSelect()
+	//testSelect()
+	testUpdate()
+	testInsert()
+	testDelete()
 }
 
 func testutil(sql string) {
@@ -15,6 +18,9 @@ func testutil(sql string) {
 }
 
 func testSelect() {
+	println()
+	println("select test:")
+
 	var sb []string
 	for i := 0; i < 500; i++ {
 		sb = append(sb, "?")
@@ -57,6 +63,51 @@ func testSelect() {
 		"select * from abcdefg this_ where this_.id in (select id from testtab)", //
 		"select date '2016-10-01' + 1",                                           //
 		"select a, b from tab1, tab2 t where x = y or z = x",                     //
+	}
+
+	for _, sql := range sqls {
+		testutil(sql)
+	}
+}
+func testUpdate() {
+	println()
+	println("update test:")
+
+	sqls := []string{
+		"update tab x set x.a=?,x.b='a' where id=?",                        //
+		"update tab set a = ?",                                             //
+		"update tab1 t1, tab2 set t1.a = ?, b='a' where x=? and y=?",       //
+		"UPDATE table SET c=b+1 mod 2*5 WHERE not a=1 or x not like 'xyz'", //
+	}
+
+	for _, sql := range sqls {
+		testutil(sql)
+	}
+}
+func testInsert() {
+	println()
+	println("insert test:")
+
+	sqls := []string{
+		"InSeRt taba(abc_1,str1,str2, create_tiMe,n,ph1,ph2) \nVALUES(?,'a\"b''c',\"a'\"\"b\",current_timestamp,nUlL,:1,:ph2)", //
+		"insert into tab (a, b, c) select 1, 2, 3", //
+		"insert into tt_special_config(id,bill_no,type,config_id,value,created_time,modified_time,is_deleted) values(?,?)", //
+	}
+
+	for _, sql := range sqls {
+		testutil(sql)
+	}
+}
+func testDelete() {
+	println()
+	println("delete test:")
+
+	sqls := []string{
+		"delete from tt_order_status where id = ?",           //
+		"delete from tt_order_status t where t.id = ?",       //
+		"delete from tt_order_status as t -- test comment",   //
+		"delete from tt_order_status lImIt 9 # test comment", //
+		"DELETE FROM t1 WHERE s11 > ANY (SELECT COUNT(*) /* no hint */ FROM t2 WHERE NOT EXISTS (SELECT * FROM t3 WHERE ROW(5*t2.s1,77)= (SELECT 50,11*s1 FROM t4 UNION SELECT 50,77 FROM(SELECT * FROM t5) AS t5)))", //
 	}
 
 	for _, sql := range sqls {
