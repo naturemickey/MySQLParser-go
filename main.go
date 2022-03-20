@@ -18,4 +18,6 @@ func main() {
 	tree := p.Stat()
 	listener := parser.NewMySQLListener()
 	antlr.ParseTreeWalkerDefault.Walk(listener, tree)
+
+	println(listener.Result().String())
 }
