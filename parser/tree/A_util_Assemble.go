@@ -10,8 +10,8 @@ func Assemble(stat Stat, stats []Stat) {
 		return
 	}
 
-	object := reflect.ValueOf(stat)
-	myref := object.Elem()
+	reflectVal := reflect.ValueOf(stat)
+	myref := reflectVal.Elem()
 	typeOfType := myref.Type()
 
 	j := 0
@@ -31,8 +31,8 @@ func Assemble(stat Stat, stats []Stat) {
 		paramType := reflect.TypeOf(stats[j])
 
 		if fieldType == paramType || paramType.AssignableTo(fieldType) {
-			v := object.MethodByName(setMethodName)
-			v.Call([]reflect.Value{reflect.ValueOf(stats[j])})
+			method := reflectVal.MethodByName(setMethodName)
+			method.Call([]reflect.Value{reflect.ValueOf(stats[j])})
 			j++
 		}
 
@@ -45,4 +45,35 @@ func Assemble(stat Stat, stats []Stat) {
 	if !complete {
 		panic("有些地方出错了。")
 	}
+}
+
+func Children(stat Stat) []Stat {
+	var res []Stat
+
+	reflectVal := reflect.ValueOf(stat)
+	myref := reflectVal.Elem()
+	typeOfType := myref.Type()
+	for i := 0; i < myref.NumField(); i++ {
+		fieldName := typeOfType.Field(i).Name
+
+		if fieldName == "BaseStat" {
+			continue
+		}
+
+		getMethodName := strings.Title(fieldName)
+		method := reflectVal.MethodByName(getMethodName)
+		fieldVal := method.Call([]reflect.Value{})
+
+		val := fieldVal[0].Interface()
+
+		if val == nil || reflect.ValueOf(val).IsNil() {
+			continue
+		}
+
+		switch val.(type) {
+		case Stat:
+			res = append(res, val.(Stat))
+		}
+	}
+	return res
 }
