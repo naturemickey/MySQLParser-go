@@ -43,6 +43,6 @@ func (this *ExprInSelect) String() string {
 	if this.not != "" {
 		sql.Append(this.not).Append(" ")
 	}
-	sql.Append(" in (").AppendStat(this.selectStat).Append(")")
+	sql.Append("in (").AppendStat(this.selectStat).Append(")")
 	return sql.String()
 }

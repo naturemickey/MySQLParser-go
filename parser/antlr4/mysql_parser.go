@@ -2295,8 +2295,8 @@ func (s *SelectSuffixContext) GbobExprs() IGbobExprsContext {
 	return t.(IGbobExprsContext)
 }
 
-func (s *SelectSuffixContext) FOR() antlr.TerminalNode {
-	return s.GetToken(MySQLParserFOR, 0)
+func (s *SelectSuffixContext) UPDATE() antlr.TerminalNode {
+	return s.GetToken(MySQLParserUPDATE, 0)
 }
 
 func (s *SelectSuffixContext) IN() antlr.TerminalNode {
@@ -2311,8 +2311,8 @@ func (s *SelectSuffixContext) MODE() antlr.TerminalNode {
 	return s.GetToken(MySQLParserMODE, 0)
 }
 
-func (s *SelectSuffixContext) UPDATE() antlr.TerminalNode {
-	return s.GetToken(MySQLParserUPDATE, 0)
+func (s *SelectSuffixContext) FOR() antlr.TerminalNode {
+	return s.GetToken(MySQLParserFOR, 0)
 }
 
 func (s *SelectSuffixContext) LOCK() antlr.TerminalNode {
@@ -2532,14 +2532,14 @@ func (p *MySQLParser) SelectSuffix() (localctx ISelectSuffixContext) {
 	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 18, p.GetParserRuleContext()) == 1 {
 		{
 			p.SetState(226)
-			p.Match(MySQLParserFOR)
+
+			var _m = p.Match(MySQLParserFOR)
+
+			localctx.(*SelectSuffixContext).lock = _m
 		}
 		{
 			p.SetState(227)
-
-			var _m = p.Match(MySQLParserUPDATE)
-
-			localctx.(*SelectSuffixContext).lock = _m
+			p.Match(MySQLParserUPDATE)
 		}
 
 

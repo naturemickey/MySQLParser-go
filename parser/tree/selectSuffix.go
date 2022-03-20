@@ -82,7 +82,7 @@ func (this *SelectSuffix) String() string {
 		}
 	}
 	if this.lock != "" {
-		sql.Append(" for ").Append(this.lock)
+		sql.Append(" ").Append(this.lock)
 	}
 	return sql.String()
 }

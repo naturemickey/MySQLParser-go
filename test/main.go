@@ -54,6 +54,7 @@ func testSelect() {
 		"SELECT CASE 1 WHEN 1 THEN 'one' WHEN 2 THEN 'two' ELSE 'more' END",      //
 		"SELECT CASE BINARY 'B' WHEN 'a' THEN 1 WHEN 'b' THEN 2 END",             //
 		"select * from tt_express_task_info this_ where this_.id in (" + s + ")", //
+		"select * from abcdefg this_ where this_.id in (select id from testtab)", //
 		"select date '2016-10-01' + 1",                                           //
 		"select a, b from tab1, tab2 t where x = y or z = x",                     //
 	}

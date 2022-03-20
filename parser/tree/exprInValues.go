@@ -43,6 +43,6 @@ func (this *ExprInValues) String() string {
 	if this.not != "" {
 		sql.Append(this.not).Append(" ")
 	}
-	sql.Append(" in (").AppendStat(this.valueList).Append(")")
+	sql.Append("in (").AppendStat(this.valueList).Append(")")
 	return sql.String()
 }

@@ -4,6 +4,7 @@ import (
 	. "MySQLParser-go/parser/antlr4"
 	"MySQLParser-go/parser/tree"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
+	"strings"
 )
 
 type MySQLListenerGo struct {
@@ -144,9 +145,12 @@ func (this *MySQLListenerGo) EnterSelectSuffix(ctx *SelectSuffixContext) {
 		selectSuffix.SetHasOffSet(ctx.OFFSET() != nil)
 	}
 	if ctx.GetLock() != nil {
-		selectSuffix.SetLock(ctx.GetLock().GetText())
+		if strings.ToLower(ctx.GetLock().GetText()) == "for" {
+			selectSuffix.SetLock("for update")
+		} else {
+			selectSuffix.SetLock("lock in share mode")
+		}
 	}
-
 	this.stack.PushMateriel(selectSuffix)
 }
 
@@ -158,7 +162,9 @@ func (this *MySQLListenerGo) ExitSelectSuffix(ctx *SelectSuffixContext) {
 // EnterSelectUnionSuffix is called when production selectUnionSuffix is entered.
 func (this *MySQLListenerGo) EnterSelectUnionSuffix(ctx *SelectUnionSuffixContext) {
 	selectUnionSuffix := &tree.SelectUnionSuffix{}
-	selectUnionSuffix.SetMethod(ctx.GetMethod().GetText())
+	if ctx.GetMethod() != nil {
+		selectUnionSuffix.SetMethod(ctx.GetMethod().GetText())
+	}
 
 	this.stack.PushMateriel(selectUnionSuffix)
 }

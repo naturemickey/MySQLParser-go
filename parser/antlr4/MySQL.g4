@@ -43,7 +43,7 @@ selectPrefix
 selectSuffix
 	: (ORDER BY orderByExprs=gbobExprs)?
 	  (LIMIT (((offset=(INT | PLACEHOLDER) ',')? rowCount=(INT | PLACEHOLDER)) | (rowCount=(INT | PLACEHOLDER) OFFSET offset=(INT | PLACEHOLDER))))?
-	   ((FOR lock=UPDATE) | (lock=LOCK IN SHARE MODE))?
+	   ((lock=FOR UPDATE) | (lock=LOCK IN SHARE MODE))?
 	;
 selectUnionSuffix
 	: UNION method=(ALL | DISTINCT)? ('(' selectStat ')' | selectStat) selectSuffix

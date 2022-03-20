@@ -8,6 +8,13 @@ type ElementOpEleSuffix struct {
 }
 
 func (this *ElementOpEleSuffix) Assemble(stats []Stat) {
+	if this.op == "" {
+		element := stats[0].(*ElementOpEle).ElementOpFactory().(*ElementTextParam)
+		text := []rune(element.Text())
+		this.op = string([]rune{text[0]})
+		text = text[1:]
+		element.SetText(string(text))
+	}
 	Assemble(this, stats)
 }
 

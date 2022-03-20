@@ -7,6 +7,30 @@ type ParamList struct {
 	paramList      *ParamList
 }
 
+func (this *ParamList) Element() Element {
+	return this.element
+}
+
+func (this *ParamList) SetElement(element Element) {
+	this.element = element
+}
+
+func (this *ParamList) ExprRelational() *ExprRelational {
+	return this.exprRelational
+}
+
+func (this *ParamList) SetExprRelational(exprRelational *ExprRelational) {
+	this.exprRelational = exprRelational
+}
+
+func (this *ParamList) ParamList() *ParamList {
+	return this.paramList
+}
+
+func (this *ParamList) SetParamList(paramList *ParamList) {
+	this.paramList = paramList
+}
+
 func (this *ParamList) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
