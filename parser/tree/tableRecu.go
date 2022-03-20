@@ -5,6 +5,16 @@ type TableRecu struct {
 	tableRel TableRel
 }
 
+func (this *TableRecu) _TableRel() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *TableRecu) _TableFactor() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *TableRecu) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

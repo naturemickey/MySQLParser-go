@@ -7,6 +7,11 @@ type WhereCondSub struct {
 	expressionOperator string
 }
 
+func (this *WhereCondSub) _WhereCondition() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *WhereCondSub) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

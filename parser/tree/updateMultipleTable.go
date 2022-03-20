@@ -7,6 +7,11 @@ type UpdateMultipleTable struct {
 	whereCondition      WhereCondition
 }
 
+func (this *UpdateMultipleTable) _UpdateStat() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *UpdateMultipleTable) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

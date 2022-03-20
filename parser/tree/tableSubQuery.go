@@ -6,6 +6,16 @@ type TableSubQuery struct {
 	alias      string
 }
 
+func (this *TableSubQuery) _TableRel() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *TableSubQuery) _TableFactor() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *TableSubQuery) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -30,6 +40,6 @@ var _ TableFactor = &TableSubQuery{}
 
 func (this *TableSubQuery) String() string {
 	sql := NewStringBuilder()
-	sql.Append("(").AppendStat(this.selectStat).Append(")").Append(this.alias)
+	sql.Append("(").AppendStat(this.selectStat).Append(") ").Append(this.alias)
 	return sql.String()
 }

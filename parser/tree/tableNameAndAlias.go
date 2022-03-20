@@ -6,6 +6,16 @@ type TableNameAndAlias struct {
 	alias string
 }
 
+func (this *TableNameAndAlias) _TableRel() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *TableNameAndAlias) _TableFactor() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *TableNameAndAlias) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }
@@ -29,5 +39,8 @@ func (this *TableNameAndAlias) SetAlias(alias string) {
 var _ TableFactor = &TableNameAndAlias{}
 
 func (this *TableNameAndAlias) String() string {
+	if this.alias == "" {
+		return this.name
+	}
 	return this.name + " " + this.alias
 }

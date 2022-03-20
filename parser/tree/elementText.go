@@ -5,6 +5,16 @@ type ElementText struct {
 	text string
 }
 
+func (this *ElementText) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementText) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementText) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

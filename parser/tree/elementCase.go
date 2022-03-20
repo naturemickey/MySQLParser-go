@@ -7,6 +7,16 @@ type ElementCase struct {
 	elseEl       Element
 }
 
+func (this *ElementCase) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementCase) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementCase) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

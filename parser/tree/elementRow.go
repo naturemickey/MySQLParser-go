@@ -5,6 +5,16 @@ type ElementRow struct {
 	paramList *ParamList
 }
 
+func (this *ElementRow) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementRow) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementRow) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

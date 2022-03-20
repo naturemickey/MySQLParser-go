@@ -249,7 +249,15 @@ func (this *MySQLListenerGo) ExitTableJoinSuffix(ctx *TableJoinSuffixContext) {
 // EnterTableJoinMod is called when production tableJoinMod is entered.
 func (this *MySQLListenerGo) EnterTableJoinMod(ctx *TableJoinModContext) {
 	tableJoinMod := &tree.TableJoinMod{}
-	tableJoinMod.SetMod(ctx.GetText())
+	if ctx.INNER() != nil {
+		tableJoinMod.SetMod("inner")
+	} else if ctx.CROSS() != nil {
+		tableJoinMod.SetMod("cross")
+	} else if ctx.LEFT() != nil {
+		tableJoinMod.SetMod("left outer")
+	} else {
+		tableJoinMod.SetMod("right outer")
+	}
 	this.stack.PushMateriel(tableJoinMod)
 }
 

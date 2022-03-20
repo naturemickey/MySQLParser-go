@@ -5,6 +5,16 @@ type ElementWapperBkt struct {
 	element Element
 }
 
+func (this *ElementWapperBkt) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementWapperBkt) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementWapperBkt) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

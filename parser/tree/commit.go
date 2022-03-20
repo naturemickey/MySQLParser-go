@@ -4,6 +4,11 @@ type Commit struct {
 	BaseStat
 }
 
+func (this *Commit) _TranscationStat() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *Commit) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

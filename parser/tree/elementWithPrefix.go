@@ -6,6 +6,16 @@ type ElementWithPrefix struct {
 	elementOpFactory ElementOpFactory
 }
 
+func (this *ElementWithPrefix) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementWithPrefix) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementWithPrefix) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

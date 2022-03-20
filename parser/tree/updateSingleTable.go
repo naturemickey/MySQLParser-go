@@ -8,6 +8,11 @@ type UpdateSingleTable struct {
 	rowCount          string
 }
 
+func (this *UpdateSingleTable) _UpdateStat() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *UpdateSingleTable) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

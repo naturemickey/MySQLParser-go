@@ -6,6 +6,11 @@ type TableJoin struct {
 	tableJoinSuffix   *TableJoinSuffix
 }
 
+func (this *TableJoin) _TableRel() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *TableJoin) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

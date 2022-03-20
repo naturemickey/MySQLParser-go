@@ -6,6 +6,16 @@ type ElementSubQuery struct {
 	selectStat *SelectStat
 }
 
+func (this *ElementSubQuery) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementSubQuery) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementSubQuery) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

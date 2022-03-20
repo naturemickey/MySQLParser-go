@@ -6,6 +6,11 @@ type ElementOpEle struct {
 	elementOpEleSuffix *ElementOpEleSuffix
 }
 
+func (this *ElementOpEle) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementOpEle) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

@@ -6,6 +6,16 @@ type ElementDate struct {
 	str string
 }
 
+func (this *ElementDate) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *ElementDate) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementDate) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

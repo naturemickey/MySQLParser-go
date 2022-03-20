@@ -5,6 +5,11 @@ type ElementListFactor struct {
 	elementList *ElementList
 }
 
+func (this *ElementListFactor) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ElementListFactor) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

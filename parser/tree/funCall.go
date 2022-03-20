@@ -6,6 +6,16 @@ type FunCall struct {
 	paramList *ParamList
 }
 
+func (this *FunCall) _Element() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (this *FunCall) _ElementOpFactory() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *FunCall) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

@@ -7,6 +7,11 @@ type WhereCondOp struct {
 	whereCondition     WhereCondition
 }
 
+func (this *WhereCondOp) _WhereCondition() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *WhereCondOp) Assemble(stats []Stat) {
 	Assemble(this, stats)
 }

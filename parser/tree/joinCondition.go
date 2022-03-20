@@ -31,9 +31,9 @@ var _ Stat = &JoinCondition{}
 func (this *JoinCondition) String() string {
 	sql := NewStringBuilder()
 	if this.whereCondition != nil {
-		sql.Append(" on ").AppendStat(this.whereCondition)
+		sql.Append("on ").AppendStat(this.whereCondition)
 	} else {
-		sql.Append(" using (").AppendStat(this.columnNames).Append(")")
+		sql.Append("using(").AppendStat(this.columnNames).Append(")")
 	}
 	return sql.String()
 }

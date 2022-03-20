@@ -23,8 +23,8 @@ var _ Stat = &TableNameAndAliases{}
 
 func (this *TableNameAndAliases) String() string {
 	sql := NewStringBuilder()
-	for _, alias := range this.tableNameAndAliases {
-		sql.AppendStat(alias).Append(", ")
+	for _, table := range this.tableNameAndAliases {
+		sql.AppendStat(table).Append(", ")
 	}
 	sql.deleteLast()
 	return sql.String()
