@@ -6,6 +6,11 @@ type ExprExists struct {
 	selectStat *SelectStat
 }
 
+func (this *ExprExists) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprExists) Children() []Stat {
 	return Children(this)
 }

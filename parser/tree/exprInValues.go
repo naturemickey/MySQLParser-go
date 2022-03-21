@@ -7,6 +7,11 @@ type ExprInValues struct {
 	valueList *ValueList
 }
 
+func (this *ExprInValues) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprInValues) Children() []Stat {
 	return Children(this)
 }

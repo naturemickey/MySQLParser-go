@@ -7,6 +7,11 @@ type ExprRelational struct {
 	relationalOp string
 }
 
+func (this *ExprRelational) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprRelational) Children() []Stat {
 	return Children(this)
 }

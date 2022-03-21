@@ -8,6 +8,11 @@ type ExprBetweenAnd struct {
 	right Element
 }
 
+func (this *ExprBetweenAnd) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprBetweenAnd) Children() []Stat {
 	return Children(this)
 }

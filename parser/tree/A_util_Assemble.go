@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-func Assemble(stat Stat, stats []Stat) {
-	if len(stats) == 0 {
+func Assemble(stat Stat, params []Stat) {
+	if len(params) == 0 {
 		return
 	}
 
@@ -28,15 +28,15 @@ func Assemble(stat Stat, stats []Stat) {
 		setMethodName := "Set" + strings.Title(fieldName)
 
 		fieldType := field.Type()
-		paramType := reflect.TypeOf(stats[j])
+		paramType := reflect.TypeOf(params[j])
 
 		if fieldType == paramType || paramType.AssignableTo(fieldType) {
 			method := reflectVal.MethodByName(setMethodName)
-			method.Call([]reflect.Value{reflect.ValueOf(stats[j])})
+			method.Call([]reflect.Value{reflect.ValueOf(params[j])})
 			j++
 		}
 
-		if j == len(stats) {
+		if j == len(params) {
 			complete = true
 			break
 		}

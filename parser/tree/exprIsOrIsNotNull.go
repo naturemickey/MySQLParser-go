@@ -7,6 +7,11 @@ type ExprIsOrIsNotNull struct {
 	what    string
 }
 
+func (this *ExprIsOrIsNotNull) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprIsOrIsNotNull) Children() []Stat {
 	return Children(this)
 }

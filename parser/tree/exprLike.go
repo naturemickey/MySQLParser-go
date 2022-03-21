@@ -7,6 +7,11 @@ type ExprLike struct {
 	not   string
 }
 
+func (this *ExprLike) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprLike) Children() []Stat {
 	return Children(this)
 }

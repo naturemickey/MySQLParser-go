@@ -7,6 +7,11 @@ type ExprInSelect struct {
 	selectStat *SelectStat
 }
 
+func (this *ExprInSelect) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprInSelect) Children() []Stat {
 	return Children(this)
 }

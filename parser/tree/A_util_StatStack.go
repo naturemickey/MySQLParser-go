@@ -7,7 +7,7 @@ type StatStack struct {
 type StatStatus int8
 
 const (
-	_materiel StatStatus = 0
+	_material StatStatus = 0
 	_product  StatStatus = 1
 )
 
@@ -21,7 +21,7 @@ func NewStatStack() *StatStack {
 }
 
 func (this *StatStack) PushMateriel(stat Stat) {
-	this.stats = append(this.stats, &statAndStatus{stat, _materiel})
+	this.stats = append(this.stats, &statAndStatus{stat, _material})
 }
 
 func (this *StatStack) MakeProduct() {
@@ -29,7 +29,7 @@ func (this *StatStack) MakeProduct() {
 	i := len(this.stats) - 1
 	for ; i >= 0; i-- {
 		s := this.stats[i]
-		if s.status == _materiel {
+		if s.status == _material {
 			product = s
 			break
 		}

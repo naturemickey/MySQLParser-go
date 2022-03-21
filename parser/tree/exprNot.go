@@ -5,6 +5,11 @@ type ExprNot struct {
 	expression Expression
 }
 
+func (this *ExprNot) _Expression() {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (this *ExprNot) Children() []Stat {
 	return Children(this)
 }

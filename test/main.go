@@ -14,7 +14,8 @@ func main() {
 
 func testutil(sql string) {
 	println("before: ", sql)
-	println("after : ", parser.ParseSQL(sql).String())
+	sqlTree := parser.ParseSQL(sql)
+	println("after : ", sqlTree.String())
 }
 
 func testSelect() {
