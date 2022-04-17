@@ -41,6 +41,7 @@ func (this *ElementDate) SetStr(str string) {
 }
 
 var _ ElementOpFactory = (*ElementDate)(nil)
+var _ Stat = (*ElementDate)(nil)
 
 func (this *ElementDate) String() string {
 	return NewStringBuilder().Append(this.dt).Append(" ").Append(this.str).String()

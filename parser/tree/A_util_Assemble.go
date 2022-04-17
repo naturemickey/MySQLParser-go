@@ -77,13 +77,19 @@ func Children(stat Stat) []Stat {
 			}
 		}
 
-		switch val.(type) {
-		case Stat:
-			res = append(res, val.(Stat))
-		case []Stat:
-			for _, s := range val.([]Stat) {
-				res = append(res, s)
+		if valType.Kind() == reflect.Slice {
+			for i := 0; i < fieldVal[0].Len(); i++ {
+				ele := fieldVal[0].Index(i).Interface()
+				switch ele.(type) {
+				case Stat:
+					res = append(res, ele.(Stat))
+				}
 			}
+		}
+
+		switch c := val.(type) {
+		case Stat:
+			res = append(res, c)
 		}
 	}
 	return res
